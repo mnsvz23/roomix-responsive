@@ -62,12 +62,16 @@
 @media (max-width: 640px) {
     .hero-section h1 {
         font-size: 2.5rem;
-        line-height: 1.1;
+        line-height: 0.95; /* Adjusted headline spacing */
     }
     
     .hero-section p {
         font-size: 1rem;
-        line-height: 1.5;
+        line-height: 1.2; /* Tighter subheadline spacing */
+    }
+    
+    .hero-section button {
+        line-height: 1; /* Tighter button spacing */
     }
 }
 
@@ -432,10 +436,12 @@ html {
     }
     
     .testimonials-stats-container {
-        flex-direction: column;
+        flex-direction: row !important;
         gap: 2rem;
         width: auto;
         height: auto;
+        justify-content: center;
+        align-items: center;
     }
     
     .testimonial-stat {
@@ -470,8 +476,196 @@ a:focus {
         padding: 2rem 0;
     }
     
+    .hero-section button {
+        font-size: 16px; /* Better mobile readability */
+        padding: 16px 32px; /* 44px minimum height */
+        min-height: 44px; /* Guaranteed touch target */
+        line-height: 1.2; /* Better text alignment */
+        border-radius: 12px; /* Slightly more rounded for mobile */
+    }
+    
+    .hero-bg {
+        background-size: cover; /* Cover container without bleeding */
+        background-position: center top; /* Better mobile positioning */
+        background-repeat: no-repeat;
+        overflow: hidden; /* Prevent bleeding outside container */
+    }
+    
+    .hero-section {
+        overflow: hidden; /* Prevent background from bleeding outside section */
+    }
+    
+    .hero-section .hero-bg {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100vw; /* Constrain to viewport width */
+        background-size: cover; /* Scale up to fill the container */
+    }
+    
+    .hero-section .relative.z-10 {
+        max-width: 100% !important; /* Override 1440px max-width */
+        width: 100%;
+        margin: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
     .why-us-section {
         padding: 3rem 0;
+    }
+    
+    /* Mobile-specific padding for all sections (except hero) */
+    .max-w-7xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .max-w-4xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Mobile testimonials layout - vertical stacking */
+    .testimonials-content-frame .flex {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        align-items: center !important;
+    }
+    
+    .testimonials-content-frame .w-\[400px\] {
+        width: 100% !important;
+        max-width: 400px !important;
+    }
+    
+    .testimonials-content-frame img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 420px !important;
+    }
+    
+    /* Mobile testimonials headline scaling */
+    .testimonials-content-frame h2,
+    .bg-\[#f8ede3\] h2,
+    .font-archivo.font-\[450\].text-\[64px\] {
+        font-size: 2.5rem !important; /* 40px - mobile appropriate */
+        line-height: 1.1 !important; /* Better mobile line height */
+        width: 100% !important; /* Full width on mobile */
+        white-space: normal !important; /* Allow text wrapping */
+        margin-bottom: 2rem !important; /* Better mobile spacing */
+        padding-left: 0 !important; /* Remove desktop padding */
+    }
+    
+    /* Mobile modal positioning and responsiveness */
+    body .modal-overlay {
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 1rem !important;
+    }
+    
+    body .modal-content {
+        transform: none !important; /* Remove desktop transform */
+        max-height: calc(100vh - 2rem) !important;
+        width: calc(100vw - 2rem) !important;
+        overflow-y: auto !important; /* Allow scrolling if content is too tall */
+        -webkit-overflow-scrolling: touch !important; /* Smooth iOS scrolling */
+        padding: 1.5rem !important; /* Reduced padding for mobile */
+    }
+    
+    /* Mobile modal touch targets and sizing */
+    body .modal-close {
+        min-height: 44px !important; /* Touch-friendly close button */
+        min-width: 44px !important;
+    }
+    
+    body .submit-btn {
+        min-height: 44px !important; /* Touch-friendly submit button */
+        padding: 1rem 1.5rem !important; /* Larger touch area */
+    }
+    
+    body .form-input {
+        min-height: 44px !important; /* Touch-friendly input fields */
+        font-size: 16px !important; /* Prevent zoom on iOS */
+    }
+    
+    /* Mobile modal typography */
+    body .modal-header h2 {
+        font-size: 1.5rem !important; /* Smaller title for mobile */
+    }
+    
+    /* Mobile modal spacing */
+    body .modal-form {
+        gap: 1rem !important; /* Tighter spacing between form elements */
+    }
+}
+
+/* Mobile Modal Overrides - Highest Priority */
+@media (max-width: 768px) {
+    /* Complete modal reset and rebuild */
+    #modalOverlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background-color: rgba(0, 0, 0, 0.8) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 1000 !important;
+        padding: 1rem !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: opacity 0.3s ease-out, visibility 0.3s ease-out !important;
+    }
+    
+    #modalOverlay.show {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    #modalContent {
+        position: relative !important;
+        background-color: #f8ede3 !important;
+        width: 100% !important;
+        max-width: 350px !important;
+        max-height: calc(100vh - 2rem) !important;
+        border-radius: 12px !important;
+        padding: 1.5rem !important;
+        overflow-y: auto !important;
+        transform: translateY(40px) scale(0.95) !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        transition: transform 0.3s ease-out !important;
+        opacity: 0 !important;
+    }
+    
+    #modalOverlay.show #modalContent {
+        transform: translateY(0) scale(1) !important;
+        opacity: 1 !important;
+    }
+    
+    #modalContent .modal-close {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    #modalContent .submit-btn {
+        min-height: 44px !important;
+        padding: 1rem 1.5rem !important;
+    }
+    
+    #modalContent .form-input {
+        min-height: 44px !important;
+        font-size: 16px !important;
+    }
+    
+    #modalContent .modal-header h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    #modalContent .modal-form {
+        gap: 1rem !important;
     }
 }
 
@@ -484,10 +678,16 @@ a:focus {
     
     .hero-section h1 {
         font-size: 2rem;
+        line-height: 0.95; /* Adjusted headline spacing */
     }
     
     .hero-section p {
         font-size: 0.9rem;
+        line-height: 1.2; /* Tighter subheadline spacing */
+    }
+    
+    .hero-section button {
+        line-height: 1; /* Tighter button spacing */
     }
 }
 
