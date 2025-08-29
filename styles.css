@@ -1,0 +1,617 @@
+/* Custom Fonts */
+@font-face {
+    font-family: 'Archivo';
+    src: url('assets/Archivo-VariableFont.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('assets/Archivo-Italic-VariableFont.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/Inter-VariableFont.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/Inter-Italic-VariableFont.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: italic;
+}
+
+/* Tailwind Font Classes */
+.font-archivo {
+    font-family: 'Archivo', sans-serif;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Background Images */
+.hero-bg {
+    background-image: url('assets/hero_bg.png');
+}
+
+.why-us-bg {
+    background-image: url('assets/whyus_bg.png');
+}
+
+/* Why Us Section Styling */
+.why-us-section {
+    position: relative;
+    min-height: 860px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.why-us-section .relative.z-10 {
+    padding-top: 80px;
+}
+
+/* Responsive Typography Adjustments */
+@media (max-width: 640px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .feature-block h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .feature-block p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* Ensure proper image scaling */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hero Section Exact Figma Styling */
+.hero-section {
+    position: relative;
+    min-height: 860px;
+}
+
+.hero-section .relative.z-10 {
+    padding-top: 80px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-weight: 450;
+    font-size: 64px;
+    line-height: 60px;
+    letter-spacing: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.hero-section p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21.784px;
+    letter-spacing: 0;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.hero-section button {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16.943px;
+    letter-spacing: 0;
+}
+
+/* Hero Section Text Reveal Animation */
+.text-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+/* Optional: delay for different elements */
+.text-reveal:nth-of-type(2) {
+    animation-delay: 1s;
+}
+
+.text-reveal:nth-of-type(3) {
+    animation-delay: 2s;
+}
+
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #f8ede3;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9) translateY(40px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close:hover {
+    background-color: rgba(64, 45, 41, 0.1);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    padding: 0.75rem;
+    border: 2px solid #ddc8b5;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #402d29;
+    background-color: white;
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #6f2e1f;
+}
+
+.submit-btn {
+    background-color: #6f2e1f;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #5a2518;
+}
+
+.hidden {
+    display: none;
+}
+
+/* All Archivo headlines font weight */
+.font-archivo {
+    font-weight: 450;
+}
+
+/* Feature Image Positioning for Desktop */
+@media (min-width: 1024px) {
+    .feature1-image {
+        position: relative;
+        right: -64px; /* Account for container padding + grid gap */
+    }
+    
+    .feature3-image {
+        position: relative;
+        right: -64px; /* Account for container padding + grid gap */
+    }
+}
+
+/* Results Section Styling */
+.results-stats {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.stats-container {
+    position: relative;
+    width: 539px;
+    height: 106px;
+    padding-top: 40px;
+}
+
+.stat {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stat-label {
+    opacity: 0.5;
+}
+
+.stat-1 {
+    left: 0;
+    width: 130px;
+}
+
+.stat-2 {
+    left: 212px;
+    width: 75px;
+}
+
+.stat-3 {
+    left: 369px;
+    width: 170px;
+}
+
+.stat-divider-1 {
+    position: absolute;
+    left: 170px;
+    top: 48px;
+    width: 2px;
+    height: 90px;
+    background-color: #f8ede3;
+    opacity: 0.3;
+}
+
+.stat-divider-2 {
+    position: absolute;
+    left: 327px;
+    top: 48px;
+    width: 2px;
+    height: 90px;
+    background-color: #f8ede3;
+    opacity: 0.3;
+}
+
+@media (max-width: 1023px) {
+    .results-section {
+        height: auto;
+        padding: 3rem 0;
+    }
+    
+    .results-stats {
+        margin-top: 2rem;
+        justify-content: center;
+    }
+    
+    .stats-container {
+        flex-direction: column;
+        gap: 2rem;
+        width: auto;
+    }
+    
+    .stat {
+        align-items: center;
+        text-align: center;
+        margin-left: 0 !important;
+    }
+    
+    .stat-divider-1,
+    .stat-divider-2 {
+        display: none;
+    }
+}
+
+
+
+/* Testimonials Stats Section Styling */
+.testimonials-stats-frame {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.testimonials-stats-container {
+    position: relative;
+    width: 355px;
+    height: 87px;
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-stat {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.testimonial-stat.stat-1 {
+    left: 0;
+    width: 105px;
+}
+
+.testimonial-stat.stat-2 {
+    left: 187px;
+    width: 168px;
+}
+
+.testimonial-stat-divider {
+    position: absolute;
+    left: 145px;
+    top: 7.5px;
+    width: 2px;
+    height: 72px;
+    background-color: #ddc8b5;
+}
+
+.testimonial-stat-label {
+    opacity: 0.5;
+}
+
+@media (max-width: 1023px) {
+    .testimonials-stats-frame {
+        margin-top: 2rem;
+        justify-content: center;
+    }
+    
+    .testimonials-stats-container {
+        flex-direction: column;
+        gap: 2rem;
+        width: auto;
+        height: auto;
+    }
+    
+    .testimonial-stat {
+        align-items: center;
+        text-align: center;
+        position: relative !important;
+        left: auto !important;
+    }
+    
+    .testimonial-stat-divider {
+        display: none;
+    }
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus {
+    outline: 2px solid #6f2e1f;
+    outline-offset: 2px;
+}
+
+/* Ensure proper contrast and readability */
+.text-white {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Optimize for mobile performance */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 100vh;
+        height: auto;
+        padding: 2rem 0;
+    }
+    
+    .why-us-section {
+        padding: 3rem 0;
+    }
+}
+
+/* Ensure proper spacing on very small screens */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Why Us Content Frame Styling */
+.why-us-content-frame {
+    width: 702px;
+    height: 268px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Main Content Container */
+.why-us-main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Icon Styling */
+.why-us-icon {
+    width: 60px;
+    height: 60px;
+    margin: 40px auto 0;
+    display: block;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Content Row Styling */
+.why-us-content-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 88px;
+    margin-top: 20px;
+}
+
+.why-us-nav-btn {
+    width: 42px;
+    height: 42px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.why-us-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.why-us-nav-icon {
+    width: 42px;
+    height: 42px;
+}
+
+/* Text Content Styling */
+.why-us-text-content {
+    width: 570px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.why-us-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: white;
+    margin-bottom: 0;
+    text-align: center;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.why-us-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: white;
+    text-align: center;
+    margin-top: 8px;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Responsive adjustments for Why Us section */
+@media (max-width: 768px) {
+    .why-us-content-frame {
+        width: 100%;
+        height: auto;
+        padding: 0 1rem;
+    }
+    
+    .why-us-icon-row {
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    
+    .why-us-content-row {
+        height: auto;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .why-us-text-content {
+        padding: 0;
+        order: 2;
+    }
+    
+    .why-us-nav-btn {
+        order: 1;
+    }
+    
+    .why-us-nav-left {
+        order: 1;
+    }
+    
+    .why-us-nav-right {
+        order: 3;
+    }
+}

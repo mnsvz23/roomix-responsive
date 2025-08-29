@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomix - Turn every hotel room into a revenue machine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-inter">
+    <!-- Hero Section -->
+    <section class="hero-section relative min-h-screen">
+        <div class="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat"></div>
+        <div class="relative z-10 w-full max-w-[1440px] mx-auto px-4">
+            <h1 class="font-archivo font-[450] text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 max-w-4xl mx-auto text-reveal">
+                Turn every hotel room<br>into a revenue machine.
+            </h1>
+            <p class="font-inter font-medium text-base md:text-lg lg:text-xl text-white leading-relaxed mb-8 max-w-2xl mx-auto text-reveal">
+                Delight guests with modern in-room experiences.<br>Order food, book a spa or request a taxi in just a click.<br>More convenience for them, more revenue for you.
+            </p>
+            <button class="bg-[#fff2e4] text-[#6f2e1f] font-bold py-3 px-6 rounded-lg text-sm hover:bg-white transition-colors text-reveal" onclick="openModal()">
+                Book a Demo
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 md:py-24 bg-[#f8ede3]">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Feature 1 -->
+            <div class="feature-block mb-16 md:mb-24">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="font-archivo font-[450] text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#6f2e1f] leading-tight mb-6">
+                            All hotel services.<br>On the TV. Instantly.
+                        </h2>
+                        <p class="font-inter font-medium text-base md:text-lg text-[#402d29] leading-relaxed">
+                            Replace frustrating phone orders with elegant TV and mobile interfaces. Guests can browse your restaurant menu with allergen information, book spa treatments with live availability and access your full range of services instantly.<br><br>
+                            Watch your staff transform their output while guests order more confidently and spend more per stay.
+                        </p>
+                    </div>
+                    <div class="order-1 lg:order-2 -mr-4 lg:-mr-16">
+                        <img src="assets/feature1.png" alt="Hotel TV interface" class="w-full h-auto rounded-lg feature1-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-block mb-16 md:mb-24">
+                <div class="grid lg:grid-cols-5 gap-8 lg:gap-16 items-center">
+                    <div class="order-1 lg:col-span-2">
+                        <img src="assets/feature2.png" alt="Multi-language interface" class="w-full h-auto rounded-lg">
+                    </div>
+                    <div class="order-2 lg:col-span-3">
+                        <h2 class="font-archivo font-[450] text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#6f2e1f] leading-tight mb-6">
+                            Software that speaks your team's language.
+                        </h2>
+                        <p class="font-inter font-medium text-base md:text-lg text-[#402d29] leading-relaxed">
+                            Whether your staff speaks Hindi, Thai or Malay, our platform adapts to their native language, with AI-enabled voice commands and requests.<br><br>
+                            Your team works confidently without language barriers, delivering faster service that boosts guest satisfaction and repeat bookings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-block">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="font-archivo font-[450] text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#6f2e1f] leading-tight mb-6">
+                            From room<br>to destination,<br>in one click.
+                        </h2>
+                        <p class="font-inter font-medium text-base md:text-lg text-[#402d29] leading-relaxed">
+                            Skip the front desk hassle. Guests can request taxis, book airport transfers or arrange local taxis directly from their room TV with instant confirmation and real-time tracking.<br><br>
+                            Your hotel earns commission on every ride while delivering the convenience all modern travellers expect.
+                        </p>
+                    </div>
+                    <div class="order-1 lg:order-2 -mr-4 lg:-mr-16">
+                        <img src="assets/feature3.png" alt="Transport booking interface" class="w-full h-auto rounded-lg feature3-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us-section relative">
+        <div class="why-us-bg absolute inset-0 bg-cover bg-center bg-no-repeat"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-archivo font-[450] text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight">
+                Why hotels love us
+            </h2>
+            
+            <!-- Why Us Content Frame -->
+            <div class="why-us-content-frame mx-auto">
+                <!-- Main Content Container -->
+                <div class="why-us-main-content">
+                    <!-- Carousel Icon -->
+                    <img src="assets/icon_food.svg" alt="Carousel icon" class="why-us-icon" id="why-us-icon">
+                    
+                    <!-- Content Row -->
+                    <div class="why-us-content-row">
+                        <button class="why-us-nav-btn why-us-nav-left" aria-label="Previous testimonial">
+                            <img src="assets/arrow left.svg" alt="Previous" class="why-us-nav-icon">
+                        </button>
+                        
+                        <div class="why-us-text-content">
+                            <h3 class="why-us-subtitle" id="why-us-subtitle">
+                                Guests Order 20% More Food
+                            </h3>
+                            <p class="why-us-description" id="why-us-description">
+                                One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals.
+                            </p>
+                        </div>
+                        
+                        <button class="why-us-nav-btn why-us-nav-right" aria-label="Next testimonial">
+                            <img src="assets/arrow right.svg" alt="Next" class="why-us-nav-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="bg-[#353623] py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-archivo font-[450] text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight mb-6">
+                        Results you can measure
+                    </h2>
+                    <p class="font-inter text-base md:text-lg text-white leading-relaxed">
+                        Deliver seamless, smart technology that elevates your guest experience effortlessly, while generating new revenue streams from entertainment, dining and local experiences.<br><br>All through one intelligent interface.
+                    </p>
+                </div>
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2">20%</div>
+                        <div class="text-sm md:text-base font-medium text-white">Avg rev boost</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2">5x</div>
+                        <div class="text-sm md:text-base font-medium text-white">Avg ROI</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2">80+</div>
+                        <div class="text-sm md:text-base font-medium text-white">Hrs saved per week</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-[#f8ede3] py-16 md:py-24">
+        <div class="w-full max-w-[1440px] mx-auto px-4">
+            <h2 class="font-archivo font-[450] text-[64px] text-[#6f2e1f] leading-[60px] mb-12 lg:pl-[205px] w-[963px] whitespace-nowrap">
+                Real stories, Real revenue boosts
+            </h2>
+            <div class="testimonials-content-frame lg:pl-[205px]">
+                <div class="flex lg:gap-[125px] items-end">
+                    <div class="w-[400px]">
+                        <img src="assets/testimonials.png" alt="Hotel testimonial" class="w-[400px] h-[420px] object-cover rounded-lg">
+                    </div>
+                    <div>
+                        <p class="font-inter font-medium text-[18px] text-[#402d29] leading-[21.78px] mb-6 max-w-[400px]">
+                            "Our front desk teams went from fielding 100+ service calls per day to maybe 20. Meanwhile, our transport commissions alone cover the platform cost, and guest satisfaction scores hit 4.8 stars for the first time ever. I should have done this years ago!"
+                        </p>
+                        <p class="font-inter font-medium text-[24px] text-[#402d29] leading-[29px] mb-[88px]">
+                            - Lisa Park, GM, Hotel Warisan
+                        </p>
+                        <div class="testimonials-stats-frame">
+                            <div class="testimonials-stats-container">
+                                <div class="testimonial-stat stat-1">
+                                    <div class="testimonial-stat-number text-[42px] font-light text-[#402d29] leading-[63px]">15%</div>
+                                    <div class="testimonial-stat-label text-[16px] font-medium text-[#402d29] leading-[24px]">more revenue</div>
+                                </div>
+                                <div class="testimonial-stat-divider"></div>
+                                <div class="testimonial-stat stat-2">
+                                    <div class="testimonial-stat-number text-[42px] font-light text-[#402d29] leading-[63px]">80+</div>
+                                    <div class="testimonial-stat-label text-[16px] font-medium text-[#402d29] leading-[24px]">hours saved per week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#481e1a] py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-archivo font-[450] text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight mb-6">
+                        Turn every room into real revenue
+                    </h2>
+                    <p class="font-inter text-base md:text-lg text-white leading-relaxed mb-8">
+                        Schedule a 15-minute call and we'll show you how hotels like yours are increasing revenue with zero hassle.
+                    </p>
+                    <button class="bg-[#fff2e4] text-[#6f2e1f] font-bold py-3 px-6 rounded-lg text-sm hover:bg-white transition-colors" onclick="openModal()">
+                        Book a Demo
+                    </button>
+                </div>
+            </div>
+            <div class="border-t border-white border-opacity-20 mt-12 pt-8">
+                <p class="text-center font-inter font-semibold text-sm text-white text-opacity-50">
+                    © 2025 Manas™. All rights reserved. &nbsp;&nbsp;&nbsp; Terms &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Cookie Policy &nbsp;|&nbsp; My Privacy
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay hidden">
+        <!-- Modal Content -->
+        <div id="modalContent" class="modal-content">
+            <div class="modal-header">
+                <h2 class="font-archivo font-[450] text-2xl md:text-3xl text-[#402d29] mb-6">Book a Demo</h2>
+                <button onclick="closeModal()" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="#402d29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="name" class="font-inter font-medium text-[#402d29] mb-2 block">Your Name</label>
+                    <input type="text" id="name" name="name" required class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="font-inter font-medium text-[#402d29] mb-2 block">Email Address</label>
+                    <input type="email" id="email" name="email" required class="form-input">
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Carousel data
+        const carouselData = [
+            {
+                icon: "assets/icon_food.svg",
+                iconAlt: "Food icon",
+                subtitle: "Guests Order 20% More Food",
+                description: "One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals."
+            },
+            {
+                icon: "assets/icon_tv.svg",
+                iconAlt: "TV icon",
+                subtitle: "Guests Order 10% More Food",
+                description: "One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals."
+            },
+            {
+                icon: "assets/icon_sat.svg",
+                iconAlt: "Satellite icon",
+                subtitle: "Guests Order 90% More Food",
+                description: "One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals."
+            }
+        ];
+
+        let currentSlide = 0;
+
+        // Get DOM elements
+        const iconElement = document.getElementById('why-us-icon');
+        const subtitleElement = document.getElementById('why-us-subtitle');
+        const descriptionElement = document.getElementById('why-us-description');
+        const prevButton = document.querySelector('.why-us-nav-left');
+        const nextButton = document.querySelector('.why-us-nav-right');
+
+        // Function to update carousel content with fade animation
+        const updateCarousel = () => {
+            const slide = carouselData[currentSlide];
+            
+            // Fade out
+            iconElement.style.opacity = '0';
+            subtitleElement.style.opacity = '0';
+            descriptionElement.style.opacity = '0';
+            
+            // Update content after fade out
+            setTimeout(() => {
+                iconElement.src = slide.icon;
+                iconElement.alt = slide.iconAlt;
+                subtitleElement.textContent = slide.subtitle;
+                descriptionElement.textContent = slide.description;
+                
+                // Fade in
+                iconElement.style.opacity = '1';
+                subtitleElement.style.opacity = '1';
+                descriptionElement.style.opacity = '1';
+            }, 400); // Half of the transition duration
+        };
+
+        // Function to go to previous slide
+        const goToPreviousSlide = () => {
+            currentSlide = currentSlide === 0 ? carouselData.length - 1 : currentSlide - 1;
+            updateCarousel();
+        };
+
+        // Function to go to next slide
+        const goToNextSlide = () => {
+            currentSlide = currentSlide === carouselData.length - 1 ? 0 : currentSlide + 1;
+            updateCarousel();
+        };
+
+        // Add event listeners
+        prevButton.addEventListener('click', goToPreviousSlide);
+        nextButton.addEventListener('click', goToNextSlide);
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                goToPreviousSlide();
+            } else if (event.key === 'ArrowRight') {
+                goToNextSlide();
+            }
+        });
+
+        // Modal Functions
+        function openModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking overlay
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target.id === 'modalOverlay') {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('modalOverlay');
+                if (!modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            }
+        });
+
+        // Handle form submission
+        document.querySelector('.modal-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', { name, email });
+            
+            // For demo purposes, show an alert
+            alert('Thank you! We\'ll be in touch soon.');
+            closeModal();
+        });
+    </script>
+</body>
+</html>
