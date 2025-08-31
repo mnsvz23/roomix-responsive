@@ -1,0 +1,24 @@
+# Jekyll configuration for GitHub Pages
+# This ensures static files are served correctly
+
+# Site settings
+title: Roomix - Turn every hotel room into a revenue machine
+description: Delight guests with modern in-room experiences
+url: "https://roomix.tv"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - README.md
+  - .gitignore
+  - .github
+
+# Include all files
+include:
+  - assets
+  - index.html
+  - styles.css
