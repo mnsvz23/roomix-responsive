@@ -12,6 +12,11 @@
     <section class="hero-section relative min-h-screen">
         <div class="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat"></div>
         <div class="relative z-10 w-full max-w-[1440px] mx-auto px-4">
+            <!-- Logo -->
+            <div class="flex justify-center mb-8 pt-5">
+                <img src="assets/logo.svg" alt="Roomix.tv" class="h-6 md:h-8">
+            </div>
+            
             <h1 class="font-archivo font-[450] text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 max-w-4xl mx-auto text-reveal">
                 Turn every hotel room<br>into a revenue machine.
             </h1>
@@ -206,8 +211,8 @@
                 </div>
             </div>
             <div class="border-t border-white border-opacity-20 mt-12 pt-8">
-                <p class="text-center font-inter font-semibold text-sm text-white text-opacity-50">
-                    © 2025 Manas™. All rights reserved. &nbsp;&nbsp;&nbsp; Terms &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Cookie Policy &nbsp;|&nbsp; My Privacy
+                <p class="text-left font-inter font-semibold text-sm text-white text-opacity-50">
+                    © 2025 Roomix™. All rights reserved.
                 </p>
             </div>
         </div>
@@ -226,7 +231,7 @@
                 </button>
             </div>
             
-            <form class="modal-form">
+            <form class="modal-form" action="https://formspree.io/f/xldwgwro" method="POST" id="demoForm">
                 <div class="form-group">
                     <label for="name" class="font-inter font-medium text-[#402d29] mb-2 block">Your Name</label>
                     <input type="text" id="name" name="name" required class="form-input">
@@ -237,90 +242,68 @@
                     <input type="email" id="email" name="email" required class="form-input">
                 </div>
                 
-                <button type="submit" class="submit-btn">
-                    Submit
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">Submit</span>
+                    <span class="btn-loading hidden">Sending...</span>
                 </button>
+                
+                <div id="formMessage" class="hidden mt-4 p-3 rounded-lg text-center"></div>
             </form>
         </div>
     </div>
 
     <script>
-        // Carousel data
-        const carouselData = [
-            {
-                icon: "assets/icon_food.svg",
-                iconAlt: "Food icon",
-                subtitle: "Guests Order 20% More Food",
-                description: "One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals."
-            },
-            {
-                icon: "assets/icon_tv.svg",
-                iconAlt: "TV icon",
-                subtitle: "Guests Order 10% More Food",
-                description: "One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals."
-            },
-            {
-                icon: "assets/icon_sat.svg",
-                iconAlt: "Satellite icon",
-                subtitle: "Guests Order 90% More Food",
-                description: "One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals."
-            }
-        ];
 
-        let currentSlide = 0;
+        // Formspree form submission handling
+        const demoForm = document.getElementById('demoForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        const formMessage = document.getElementById('formMessage');
 
-        // Get DOM elements
-        const iconElement = document.getElementById('why-us-icon');
-        const subtitleElement = document.getElementById('why-us-subtitle');
-        const descriptionElement = document.getElementById('why-us-description');
-        const prevButton = document.querySelector('.why-us-nav-left');
-        const nextButton = document.querySelector('.why-us-nav-right');
-
-        // Function to update carousel content with fade animation
-        const updateCarousel = () => {
-            const slide = carouselData[currentSlide];
+        demoForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
             
-            // Fade out
-            iconElement.style.opacity = '0';
-            subtitleElement.style.opacity = '0';
-            descriptionElement.style.opacity = '0';
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+            formMessage.classList.add('hidden');
             
-            // Update content after fade out
-            setTimeout(() => {
-                iconElement.src = slide.icon;
-                iconElement.alt = slide.iconAlt;
-                subtitleElement.textContent = slide.subtitle;
-                descriptionElement.textContent = slide.description;
+            try {
+                const formData = new FormData(demoForm);
+                const response = await fetch(demoForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
-                // Fade in
-                iconElement.style.opacity = '1';
-                subtitleElement.style.opacity = '1';
-                descriptionElement.style.opacity = '1';
-            }, 400); // Half of the transition duration
-        };
-
-        // Function to go to previous slide
-        const goToPreviousSlide = () => {
-            currentSlide = currentSlide === 0 ? carouselData.length - 1 : currentSlide - 1;
-            updateCarousel();
-        };
-
-        // Function to go to next slide
-        const goToNextSlide = () => {
-            currentSlide = currentSlide === carouselData.length - 1 ? 0 : currentSlide + 1;
-            updateCarousel();
-        };
-
-        // Add event listeners
-        prevButton.addEventListener('click', goToPreviousSlide);
-        nextButton.addEventListener('click', goToNextSlide);
-
-        // Add keyboard navigation
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowLeft') {
-                goToPreviousSlide();
-            } else if (event.key === 'ArrowRight') {
-                goToNextSlide();
+                if (response.ok) {
+                    // Success
+                    formMessage.textContent = 'Thank you! We\'ll be in touch soon.';
+                    formMessage.className = 'mt-4 p-3 rounded-lg text-center bg-green-100 text-green-800 border border-green-200';
+                    demoForm.reset();
+                    
+                    // Close modal after 2 seconds
+                    setTimeout(() => {
+                        closeModal();
+                    }, 2000);
+                } else {
+                    // Error
+                    formMessage.textContent = 'Something went wrong. Please try again.';
+                    formMessage.className = 'mt-4 p-3 rounded-lg text-center bg-red-100 text-red-800 border border-red-200';
+                }
+            } catch (error) {
+                // Network error
+                formMessage.textContent = 'Network error. Please check your connection and try again.';
+                formMessage.className = 'mt-4 p-3 rounded-lg text-center bg-red-100 text-red-800 border border-red-200';
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
             }
         });
 
@@ -372,6 +355,97 @@
             // For demo purposes, show an alert
             alert('Thank you! We\'ll be in touch soon.');
             closeModal();
+        });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselData = [
+                {
+                    icon: "assets/icon_food.svg",
+                    iconAlt: "Food icon",
+                    subtitle: "Guests Order 20% More Food",
+                    description: "One click beats ten-minute phone calls. When guests see mouth-watering photos instead of listening to menu descriptions, they add extras and upgrade their meals."
+                },
+                {
+                    icon: "assets/icon_efficiency.svg",
+                    iconAlt: "Efficiency icon",
+                    subtitle: "Staff Efficiency Increases 40%",
+                    description: "Automated ordering reduces manual work. Your team can focus on what matters most - delivering exceptional guest experiences."
+                },
+                {
+                    icon: "assets/icon_satisfaction.svg",
+                    iconAlt: "Satisfaction icon",
+                    subtitle: "Guest Satisfaction Soars",
+                    description: "Modern, intuitive interfaces make ordering seamless. Happy guests become returning guests, driving long-term revenue growth."
+                }
+            ];
+
+            let currentIndex = 0;
+            const iconElement = document.getElementById('why-us-icon');
+            const subtitleElement = document.getElementById('why-us-subtitle');
+            const descriptionElement = document.getElementById('why-us-description');
+            const leftBtn = document.querySelector('.why-us-nav-left');
+            const rightBtn = document.querySelector('.why-us-nav-right');
+
+            // Debug: Check if elements are found
+            console.log('Carousel elements found:', {
+                subtitle: subtitleElement,
+                description: descriptionElement,
+                leftBtn: leftBtn,
+                rightBtn: rightBtn
+            });
+
+            function updateCarouselContent(direction) {
+                console.log('Updating carousel:', direction, 'Index:', currentIndex);
+                
+                // Remove existing animation classes (only for text elements)
+                subtitleElement.classList.remove('slide-in-right', 'slide-in-left');
+                descriptionElement.classList.remove('slide-in-right', 'slide-in-left');
+
+                // Force animation restart by using requestAnimationFrame
+                requestAnimationFrame(() => {
+                    // Update content first
+                    iconElement.src = carouselData[currentIndex].icon;
+                    iconElement.alt = carouselData[currentIndex].iconAlt;
+                    subtitleElement.textContent = carouselData[currentIndex].subtitle;
+                    descriptionElement.textContent = carouselData[currentIndex].description;
+                    
+                    // Then add animation class (only for text elements)
+                    const animationClass = direction === 'right' ? 'slide-in-right' : 'slide-in-left';
+                    subtitleElement.classList.add(animationClass);
+                    descriptionElement.classList.add(animationClass);
+                    console.log('Animation class added:', animationClass);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % carouselData.length;
+                updateCarouselContent('right');
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + carouselData.length) % carouselData.length;
+                updateCarouselContent('left');
+            }
+
+            // Event listeners
+            if (leftBtn && rightBtn) {
+                leftBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Left button clicked');
+                    prevSlide();
+                });
+                
+                rightBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Right button clicked');
+                    nextSlide();
+                });
+                
+                console.log('Event listeners attached successfully');
+            } else {
+                console.error('Carousel buttons not found');
+            }
         });
     </script>
 </body>

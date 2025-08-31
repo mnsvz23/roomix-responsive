@@ -45,6 +45,15 @@
     background-image: url('assets/whyus_bg.png');
 }
 
+/* Mobile-specific why-us background */
+@media (max-width: 768px) {
+    .why-us-bg {
+        background-image: url('assets/whyus_bg_mobile.png');
+        background-position: center top;
+        background-size: cover;
+    }
+}
+
 /* Why Us Section Styling */
 .why-us-section {
     position: relative;
@@ -115,7 +124,7 @@ html {
 }
 
 .hero-section .relative.z-10 {
-    padding-top: 80px;
+    padding-top: 0;
     text-align: center;
 }
 
@@ -133,7 +142,7 @@ html {
     font-size: 18px;
     line-height: 21.784px;
     letter-spacing: 0;
-    margin-bottom: 36px;
+    margin-bottom: 18px;
     text-align: center;
 }
 
@@ -456,6 +465,43 @@ html {
     }
 }
 
+/* Carousel Animation */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInFromRight 0.6s ease-out forwards !important;
+}
+
+.slide-in-left {
+    animation: slideInFromLeft 0.6s ease-out forwards !important;
+}
+
+/* Debug: Make animation more visible for testing */
+.slide-in-right,
+.slide-in-left {
+    will-change: transform, opacity;
+}
+
 /* Focus styles for accessibility */
 button:focus,
 a:focus {
@@ -509,6 +555,7 @@ a:focus {
         margin: 0;
         padding-left: 1rem;
         padding-right: 1rem;
+        padding-top: 0 !important;
     }
     
     .why-us-section {
@@ -782,36 +829,74 @@ a:focus {
 /* Responsive adjustments for Why Us section */
 @media (max-width: 768px) {
     .why-us-content-frame {
-        width: 100%;
-        height: auto;
+        width: 100% !important;
+        height: auto !important;
         padding: 0 1rem;
     }
     
-    .why-us-icon-row {
-        height: 60px;
-        margin-bottom: 20px;
+    .why-us-icon {
+        width: 50px !important;
+        height: 50px !important;
+        margin: 20px auto 0 !important;
     }
     
     .why-us-content-row {
-        height: auto;
-        flex-direction: column;
-        gap: 20px;
+        height: auto !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin-top: 20px !important;
+        align-items: center !important;
     }
     
     .why-us-text-content {
-        padding: 0;
-        order: 2;
+        width: 100% !important;
+        padding: 0 !important;
+        order: 2 !important;
+        margin-bottom: 20px !important;
     }
     
     .why-us-nav-btn {
-        order: 1;
+        order: 3 !important;
+        width: 50px !important;
+        height: 50px !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
+        display: inline-flex !important;
+        margin: 0 10px !important;
+    }
+    
+    .why-us-nav-icon {
+        width: 24px !important;
+        height: 24px !important;
     }
     
     .why-us-nav-left {
-        order: 1;
+        order: 1 !important;
     }
     
     .why-us-nav-right {
-        order: 3;
+        order: 2 !important;
+    }
+    
+    .why-us-subtitle {
+        font-size: 16px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .why-us-description {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+        margin-top: 8px !important;
     }
 }
+
+/* Mobile-specific hero background */
+@media (max-width: 768px) {
+    .hero-bg {
+        background-image: url('assets/hero_bg_mobile.png');
+        background-position: center top;
+        background-size: cover;
+    }
+}
+
