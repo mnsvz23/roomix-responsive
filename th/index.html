@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomix - เปลี่ยนทุกห้องโรงแรมให้เป็นเครื่องสร้างรายได้</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Noto Sans Thai Font */
+        @font-face {
+            font-family: 'Noto Sans Thai';
+            src: url('assets/NotoSansThai.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Thai Font Classes */
+        .font-thai {
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+
+        .font-thai-light {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-weight: 300;
+        }
+
+        .font-thai-regular {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-weight: 400;
+        }
+
+        .font-thai-medium {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-weight: 500;
+        }
+
+        .font-thai-semibold {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-weight: 600;
+        }
+
+        .font-thai-bold {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Apply Thai font to all text elements */
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-weight: 600;
+        }
+
+        p, span, div, button, input, label {
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+
+        /* Mobile responsive adjustments for Thai page */
+        @media (max-width: 768px) {
+            .font-thai-semibold.text-\[64px\] {
+                font-size: 2.5rem !important; /* 40px - mobile appropriate */
+                line-height: 1.1 !important; /* Better mobile line height */
+                width: 100% !important; /* Full width on mobile */
+                white-space: normal !important; /* Allow text wrapping */
+                margin-bottom: 2rem !important; /* Better mobile spacing */
+                padding-left: 0 !important; /* Remove desktop padding */
+            }
+        }
+    </style>
+</head>
+<body class="font-thai">
+    <!-- Hero Section -->
+    <section class="hero-section relative min-h-screen">
+        <div class="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat"></div>
+        <div class="relative z-10 w-full max-w-[1440px] mx-auto px-4">
+            <!-- Logo -->
+            <div class="flex justify-center mb-8 pt-5">
+                <img src="assets/logo.svg" alt="Roomix.tv" class="h-6 md:h-8">
+            </div>
+            
+            <h1 class="font-thai-semibold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 max-w-4xl mx-auto text-reveal">
+                เปลี่ยนทุกห้องโรงแรม<br>ให้เป็นเครื่องสร้างรายได้
+            </h1>
+            <p class="font-thai-medium text-base md:text-lg lg:text-xl text-white leading-relaxed mb-8 max-w-2xl mx-auto text-reveal">
+                สร้างความประทับใจให้แขกด้วยประสบการณ์ในห้องที่ทันสมัย<br>สั่งอาหาร จองสปา หรือเรียกแท็กซี่ได้ด้วยการคลิกเดียว<br>ความสะดวกสบายมากขึ้นสำหรับพวกเขา รายได้มากขึ้นสำหรับคุณ
+            </p>
+            <button class="bg-[#fff2e4] text-[#6f2e1f] font-thai-bold py-3 px-6 rounded-lg text-sm hover:bg-white transition-colors text-reveal" onclick="openModal()">
+                จองการสาธิต
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 md:py-24 bg-[#f8ede3]">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Feature 1 -->
+            <div class="feature-block mb-16 md:mb-24">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="font-thai-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#6f2e1f] leading-tight mb-6">
+                            บริการโรงแรมทั้งหมด<br>บนทีวี ทันที
+                        </h2>
+                        <p class="font-thai-medium text-base md:text-lg text-[#402d29] leading-relaxed">
+                            แทนที่การสั่งซื้อทางโทรศัพท์ที่น่าหงุดหงิดด้วยอินเทอร์เฟซทีวีและมือถือที่สวยงาม แขกสามารถเรียกดูเมนูร้านอาหารของคุณพร้อมข้อมูลสารก่อภูมิแพ้ จองการรักษาสปาพร้อมความพร้อมใช้งานแบบสด และเข้าถึงบริการทั้งหมดของคุณได้ทันที<br><br>
+                            ดูพนักงานของคุณเปลี่ยนผลงานของพวกเขาในขณะที่แขกสั่งซื้ออย่างมั่นใจมากขึ้นและใช้จ่ายมากขึ้นต่อการเข้าพัก
+                        </p>
+                    </div>
+                    <div class="order-1 lg:order-2 -mr-4 lg:-mr-16">
+                        <img src="assets/feature1.png" alt="อินเทอร์เฟซทีวีโรงแรม" class="w-full h-auto rounded-lg feature1-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-block mb-16 md:mb-24">
+                <div class="grid lg:grid-cols-5 gap-8 lg:gap-16 items-center">
+                    <div class="order-1 lg:col-span-2">
+                        <img src="assets/feature2.png" alt="อินเทอร์เฟซหลายภาษา" class="w-full h-auto rounded-lg">
+                    </div>
+                    <div class="order-2 lg:col-span-3">
+                        <h2 class="font-thai-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#6f2e1f] leading-tight mb-6">
+                            ซอฟต์แวร์ที่พูดภาษาของทีมคุณ
+                        </h2>
+                        <p class="font-thai-medium text-base md:text-lg text-[#402d29] leading-relaxed">
+                            ไม่ว่าพนักงานของคุณจะพูดภาษาฮินดี ไทย หรือมลายู แพลตฟอร์มของเราปรับตัวให้เข้ากับภาษาพื้นเมืองของพวกเขา พร้อมคำสั่งเสียงและการร้องขอที่เปิดใช้งานด้วย AI<br><br>
+                            ทีมของคุณทำงานอย่างมั่นใจโดยไม่มีอุปสรรคทางภาษา ให้บริการที่เร็วขึ้นซึ่งเพิ่มความพึงพอใจของแขกและการจองซ้ำ
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-block">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="font-thai-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#6f2e1f] leading-tight mb-6">
+                            จากห้อง<br>สู่จุดหมาย<br>ด้วยการคลิกเดียว
+                        </h2>
+                        <p class="font-thai-medium text-base md:text-lg text-[#402d29] leading-relaxed">
+                            ข้ามความยุ่งยากที่เคาน์เตอร์หน้าโรงแรม แขกสามารถเรียกแท็กซี่ จองรถรับส่งสนามบิน หรือจัดรถแท็กซี่ในท้องถิ่นโดยตรงจากทีวีในห้องของพวกเขาพร้อมการยืนยันทันทีและการติดตามแบบเรียลไทม์<br><br>
+                            โรงแรมของคุณได้รับคอมมิชชันจากทุกการเดินทางในขณะที่ให้ความสะดวกสบายที่นักเดินทางสมัยใหม่ทุกคนคาดหวัง
+                        </p>
+                    </div>
+                    <div class="order-1 lg:order-2 -mr-4 lg:-mr-16">
+                        <img src="assets/feature3.png" alt="อินเทอร์เฟซการจองการขนส่ง" class="w-full h-auto rounded-lg feature3-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us-section relative">
+        <div class="why-us-bg absolute inset-0 bg-cover bg-center bg-no-repeat"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-thai-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight">
+                ทำไมโรงแรมถึงรักเรา
+            </h2>
+            
+            <!-- Why Us Content Frame -->
+            <div class="why-us-content-frame mx-auto">
+                <!-- Main Content Container -->
+                <div class="why-us-main-content">
+                    <!-- Carousel Icon -->
+                    <img src="assets/icon_food.svg" alt="ไอคอนแครูเซล" class="why-us-icon" id="why-us-icon">
+                    
+                    <!-- Content Row -->
+                    <div class="why-us-content-row">
+                        <button class="why-us-nav-btn why-us-nav-left" aria-label="คำรับรองก่อนหน้า">
+                            <img src="assets/arrow left.svg" alt="ก่อนหน้า" class="why-us-nav-icon">
+                        </button>
+                        
+                        <div class="why-us-text-content">
+                            <h3 class="why-us-subtitle font-thai-bold" id="why-us-subtitle">
+                                แขกสั่งอาหารมากขึ้น 20%
+                            </h3>
+                            <p class="why-us-description font-thai-regular" id="why-us-description">
+                                การคลิกเดียวชนะการโทรศัพท์สิบนาที เมื่อแขกเห็นภาพอาหารที่น่ากินแทนที่จะฟังคำอธิบายเมนู พวกเขาจะเพิ่มของพิเศษและอัปเกรดมื้ออาหารของพวกเขา
+                            </p>
+                        </div>
+                        
+                        <button class="why-us-nav-btn why-us-nav-right" aria-label="คำรับรองถัดไป">
+                            <img src="assets/arrow right.svg" alt="ถัดไป" class="why-us-nav-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="bg-[#353623] py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-thai-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight mb-6">
+                        ผลลัพธ์ที่คุณวัดได้
+                    </h2>
+                    <p class="font-thai-regular text-base md:text-lg text-white leading-relaxed">
+                        ให้เทคโนโลยีที่ไร้รอยต่อและฉลาดที่ยกระดับประสบการณ์แขกของคุณอย่างง่ายดาย ในขณะที่สร้างกระแสรายได้ใหม่จากความบันเทิง การรับประทานอาหาร และประสบการณ์ในท้องถิ่น<br><br>ทั้งหมดผ่านอินเทอร์เฟซอัจฉริยะเดียว
+                    </p>
+                </div>
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2">20%</div>
+                        <div class="text-sm md:text-base font-thai-medium text-white">การเพิ่มรายได้เฉลี่ย</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl lg:text-6xl font-thai-light text-white mb-2">5x</div>
+                        <div class="text-sm md:text-base font-thai-medium text-white">ROI เฉลี่ย</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl lg:text-6xl font-thai-light text-white mb-2">80+</div>
+                        <div class="text-sm md:text-base font-thai-medium text-white">ชั่วโมงที่ประหยัดต่อสัปดาห์</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-[#f8ede3] py-16 md:py-24">
+        <div class="w-full max-w-[1440px] mx-auto px-4">
+            <h2 class="font-thai-semibold text-[64px] text-[#6f2e1f] leading-[60px] mb-12 lg:pl-[205px] w-[963px] whitespace-nowrap">
+                เรื่องราวจริง การเพิ่มรายได้จริง
+            </h2>
+            <div class="testimonials-content-frame lg:pl-[205px]">
+                <div class="flex lg:gap-[125px] items-end">
+                    <div class="w-[400px]">
+                        <img src="assets/testimonials.png" alt="คำรับรองโรงแรม" class="w-[400px] h-[420px] object-cover rounded-lg">
+                    </div>
+                    <div>
+                        <p class="font-thai-medium text-[18px] text-[#402d29] leading-[21.78px] mb-6 max-w-[400px]">
+                            "ทีมเคาน์เตอร์หน้าโรงแรมของเราเปลี่ยนจากการรับสายบริการ 100+ ต่อวันเป็นอาจจะ 20 สาย ในขณะเดียวกัน คอมมิชชันการขนส่งเพียงอย่างเดียวก็ครอบคลุมต้นทุนแพลตฟอร์ม และคะแนนความพึงพอใจของแขกแตะ 4.8 ดาวเป็นครั้งแรก! ฉันควรทำสิ่งนี้เมื่อหลายปีที่แล้ว!"
+                        </p>
+                        <p class="font-thai-medium text-[24px] text-[#402d29] leading-[29px] mb-[88px]">
+                            - ลิซ่า ปาร์ค, GM, โรงแรมวาริซัน
+                        </p>
+                        <div class="testimonials-stats-frame">
+                            <div class="testimonials-stats-container">
+                                <div class="testimonial-stat stat-1">
+                                    <div class="testimonial-stat-number text-[42px] font-thai-light text-[#402d29] leading-[63px]">15%</div>
+                                    <div class="testimonial-stat-label text-[16px] font-thai-medium text-[#402d29] leading-[24px]">รายได้มากขึ้น</div>
+                                </div>
+                                <div class="testimonial-stat-divider"></div>
+                                <div class="testimonial-stat stat-2">
+                                    <div class="testimonial-stat-number text-[42px] font-thai-light text-[#402d29] leading-[63px]">80+</div>
+                                    <div class="testimonial-stat-label text-[16px] font-thai-medium text-[#402d29] leading-[24px]">ชั่วโมงที่ประหยัดต่อสัปดาห์</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#481e1a] py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-thai-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight mb-6">
+                        เปลี่ยนทุกห้องให้เป็นรายได้จริง
+                    </h2>
+                    <p class="font-thai-regular text-base md:text-lg text-white leading-relaxed mb-8">
+                        จองการโทร 15 นาทีและเราจะแสดงให้คุณเห็นว่าโรงแรมเหมือนคุณเพิ่มรายได้อย่างไรโดยไม่มีปัญหา
+                    </p>
+                    <button class="bg-[#fff2e4] text-[#6f2e1f] font-thai-bold py-3 px-6 rounded-lg text-sm hover:bg-white transition-colors" onclick="openModal()">
+                        จองการสาธิต
+                    </button>
+                </div>
+            </div>
+            <div class="border-t border-white border-opacity-20 mt-12 pt-8">
+                <p class="text-left font-thai-semibold text-sm text-white text-opacity-50">
+                    © 2025 Roomix™ สงวนลิขสิทธิ์
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay hidden">
+        <!-- Modal Content -->
+        <div id="modalContent" class="modal-content">
+            <div class="modal-header">
+                <h2 class="font-thai-semibold text-2xl md:text-3xl text-[#402d29] mb-6">จองการสาธิต</h2>
+                <button onclick="closeModal()" class="modal-close" aria-label="ปิดโมดัล">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="#402d29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form class="modal-form" action="https://formspree.io/f/xldwgwro" method="POST" id="demoForm">
+                <div class="form-group">
+                    <label for="name" class="font-thai-medium text-[#402d29] mb-2 block">ชื่อของคุณ</label>
+                    <input type="text" id="name" name="name" required class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="font-thai-medium text-[#402d29] mb-2 block">อีเมล</label>
+                    <input type="email" id="email" name="email" required class="form-input">
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">ส่ง</span>
+                    <span class="btn-loading hidden">กำลังส่ง...</span>
+                </button>
+                
+                <div id="formMessage" class="hidden mt-4 p-3 rounded-lg text-center"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        // Formspree form submission handling
+        const demoForm = document.getElementById('demoForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        const formMessage = document.getElementById('formMessage');
+
+        demoForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+            formMessage.classList.add('hidden');
+            
+            try {
+                const formData = new FormData(demoForm);
+                const response = await fetch(demoForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success
+                    formMessage.textContent = 'ขอบคุณ! เราจะติดต่อกลับเร็วๆ นี้';
+                    formMessage.className = 'mt-4 p-3 rounded-lg text-center bg-green-100 text-green-800 border border-green-200';
+                    demoForm.reset();
+                    
+                    // Close modal after 2 seconds
+                    setTimeout(() => {
+                        closeModal();
+                    }, 2000);
+                } else {
+                    // Error
+                    formMessage.textContent = 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง';
+                    formMessage.className = 'mt-4 p-3 rounded-lg text-center bg-red-100 text-red-800 border border-red-200';
+                }
+            } catch (error) {
+                // Network error
+                formMessage.textContent = 'ข้อผิดพลาดเครือข่าย กรุณาตรวจสอบการเชื่อมต่อและลองใหม่อีกครั้ง';
+                formMessage.className = 'mt-4 p-3 rounded-lg text-center bg-red-100 text-red-800 border border-red-200';
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+            }
+        });
+
+        // Modal Functions
+        function openModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking overlay
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target.id === 'modalOverlay') {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('modalOverlay');
+                if (!modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            }
+        });
+
+        // Handle form submission
+        document.querySelector('.modal-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', { name, email });
+            
+            // For demo purposes, show an alert
+            alert('ขอบคุณ! เราจะติดต่อกลับเร็วๆ นี้');
+            closeModal();
+        });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselData = [
+                {
+                    icon: "assets/icon_food.svg",
+                    iconAlt: "ไอคอนอาหาร",
+                    subtitle: "แขกสั่งอาหารมากขึ้น 20%",
+                    description: "การคลิกเดียวชนะการโทรศัพท์สิบนาที เมื่อแขกเห็นภาพอาหารที่น่ากินแทนที่จะฟังคำอธิบายเมนู พวกเขาจะเพิ่มของพิเศษและอัปเกรดมื้ออาหารของพวกเขา"
+                },
+                {
+                    icon: "assets/icon_efficiency.svg",
+                    iconAlt: "ไอคอนประสิทธิภาพ",
+                    subtitle: "ประสิทธิภาพพนักงานเพิ่มขึ้น 40%",
+                    description: "การสั่งซื้ออัตโนมัติลดงานด้วยตนเอง ทีมของคุณสามารถมุ่งเน้นไปที่สิ่งที่สำคัญที่สุด - การให้ประสบการณ์แขกที่ยอดเยี่ยม"
+                },
+                {
+                    icon: "assets/icon_satisfaction.svg",
+                    iconAlt: "ไอคอนความพึงพอใจ",
+                    subtitle: "ความพึงพอใจของแขกพุ่งสูง",
+                    description: "อินเทอร์เฟซที่ทันสมัยและใช้งานง่ายทำให้การสั่งซื้อไร้รอยต่อ แขกที่มีความสุขกลายเป็นแขกที่กลับมา สร้างการเติบโตของรายได้ระยะยาว"
+                }
+            ];
+
+            let currentIndex = 0;
+            const iconElement = document.getElementById('why-us-icon');
+            const subtitleElement = document.getElementById('why-us-subtitle');
+            const descriptionElement = document.getElementById('why-us-description');
+            const leftBtn = document.querySelector('.why-us-nav-left');
+            const rightBtn = document.querySelector('.why-us-nav-right');
+
+            // Debug: Check if elements are found
+            console.log('Carousel elements found:', {
+                subtitle: subtitleElement,
+                description: descriptionElement,
+                leftBtn: leftBtn,
+                rightBtn: rightBtn
+            });
+
+            function updateCarouselContent(direction) {
+                console.log('Updating carousel:', direction, 'Index:', currentIndex);
+                
+                // Remove existing animation classes (only for text elements)
+                subtitleElement.classList.remove('slide-in-right', 'slide-in-left');
+                descriptionElement.classList.remove('slide-in-right', 'slide-in-left');
+
+                // Force animation restart by using requestAnimationFrame
+                requestAnimationFrame(() => {
+                    // Update content first
+                    iconElement.src = carouselData[currentIndex].icon;
+                    iconElement.alt = carouselData[currentIndex].iconAlt;
+                    subtitleElement.textContent = carouselData[currentIndex].subtitle;
+                    descriptionElement.textContent = carouselData[currentIndex].description;
+                    
+                    // Then add animation class (only for text elements)
+                    const animationClass = direction === 'right' ? 'slide-in-right' : 'slide-in-left';
+                    subtitleElement.classList.add(animationClass);
+                    descriptionElement.classList.add(animationClass);
+                    console.log('Animation class added:', animationClass);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % carouselData.length;
+                updateCarouselContent('right');
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + carouselData.length) % carouselData.length;
+                updateCarouselContent('left');
+            }
+
+            // Event listeners
+            if (leftBtn && rightBtn) {
+                leftBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Left button clicked');
+                    prevSlide();
+                });
+                
+                rightBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Right button clicked');
+                    nextSlide();
+                });
+                
+                console.log('Event listeners attached successfully');
+            } else {
+                console.error('Carousel buttons not found');
+            }
+        });
+    </script>
+</body>
+</html>
